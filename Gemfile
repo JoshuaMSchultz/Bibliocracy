@@ -44,3 +44,5 @@ group :development, :test do
 
   gem "fast_seeder"
 end
+
+gem "haml-rails", "~> 0.9"
