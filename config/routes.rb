@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :static_pages
+  root  'books#index'
+
+  resources :books
   resources :translations
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
