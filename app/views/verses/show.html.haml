@@ -11,4 +11,11 @@
     .col-lg-2
     .col-lg-8
       =@topverse.translation
-      
+      %br
+      =render 'translations/new', :locals => {:verse => @verse}
+    .col-lg-2
+  .row
+    .col-lg-2
+    .col-lg-8
+      - @verse.translations.each do |translation|
+        = translation.translation

@@ -1,5 +1,6 @@
 class TranslationsController < ApplicationController
   before_action :set_translation, only: [:show, :edit, :update, :destroy]
+  before_action :set_verse, only: [:create]
 
   # GET /translations
   # GET /translations.json
@@ -14,7 +15,6 @@ class TranslationsController < ApplicationController
 
   # GET /translations/new
   def new
-    @translation = Translation.new
   end
 
   # GET /translations/1/edit
@@ -24,11 +24,10 @@ class TranslationsController < ApplicationController
   # POST /translations
   # POST /translations.json
   def create
-    @translation = Translation.new(translation_params)
-
+    @translation = @verse.translations.new(translation_params)
     respond_to do |format|
       if @translation.save
-        format.html { redirect_to @translation, notice: 'Translation was successfully created.' }
+        format.html { redirect_to @verse, notice: 'Translation was successfully created.' }
         format.json { render :show, status: :created, location: @translation }
       else
         format.html { render :new }
@@ -62,6 +61,10 @@ class TranslationsController < ApplicationController
   end
 
   private
+    def set_verse
+      #@verse = Verse.find(request.env["HTTP_REFERER"].split('/')[-1].to_i)
+      @verse = Verse.find(params[:verse_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_translation
       @translation = Translation.find(params[:id])
@@ -69,6 +72,6 @@ class TranslationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def translation_params
-      params.fetch(:translation, {})
+      params.require(:translation).permit(:translation, :reason, :upvotes, :dnvotes)
     end
 end

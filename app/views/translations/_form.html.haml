@@ -1,11 +1,6 @@
-= form_for(@translation) do |f|
-  - if @translation.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@translation.errors.count, "error")
-        prohibited this translation from being saved:
-      %ul
-        - @translation.errors.full_messages.each do |message|
-          %li= message
-  .actions
-    = f.submit
+= simple_form_for([@verse, @verse.translations.build]) do |f|
+  = f.input :translation
+  = f.input :reason
+  = f.input :upvotes
+  = f.input :donvotes
+  = f.button :submit
