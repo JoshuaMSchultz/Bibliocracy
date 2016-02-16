@@ -1,6 +1,6 @@
 class VersesController < ApplicationController
   before_action :set_verse, only: [:show]
-  before_action :set_top_verse, only: [:show]
+  before_action :set_top_translation, only: [:show]
 
   def show
   end
@@ -12,9 +12,11 @@ class VersesController < ApplicationController
     @verse = Verse.find(params[:id])
   end
 
-  def set_top_verse
+  def set_top_translation
     #change to upvote
-    @topverse = @verse.translations.order(id: :desc).first
+    @topverse = @verse.translations.order(upvotes: :desc)[0]
+    @translations = @verse.translations.order(upvotes: :desc)[1..-1]
   end
+
 
 end

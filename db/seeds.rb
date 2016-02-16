@@ -32364,3 +32364,8 @@ record	66	,	1184	,	21
 end
 
 FastSeeder.seed_csv!(Translation, "t_asv.csv", :book_id, :chapter_id , :verse_id, :translation  )
+
+Translation.all.each do |t|
+  t.update(upvotes: 0)
+  t.update(dnvotes: 0)
+end
