@@ -45,8 +45,11 @@ group :development, :test do
   gem "fast_seeder"
 end
 
+# Front-End Helpers
 gem "haml-rails", "~> 0.9"
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'simple_form'
 
+# Functionality
+gem 'devise'
 gem 'acts_as_votable', '~> 0.10.0'
