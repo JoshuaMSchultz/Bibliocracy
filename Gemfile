@@ -48,3 +48,5 @@ end
 gem "haml-rails", "~> 0.9"
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'simple_form'
+
+gem 'acts_as_votable', '~> 0.10.0'
