@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160217021248) do
     t.text     "translation"
     t.text     "reason"
     t.integer  "upvotes"
-    t.integer  "donvotes"
+    t.integer  "dnvotes"
     t.integer  "verse_id"
     t.integer  "chapter_id"
     t.integer  "book_id"

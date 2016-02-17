@@ -3,6 +3,7 @@ class VersesController < ApplicationController
   before_action :set_top_translation, only: [:show]
 
   def show
+    @translations = @verse.translations.order(upvotes: :desc)
   end
 
 
@@ -13,9 +14,7 @@ class VersesController < ApplicationController
   end
 
   def set_top_translation
-    #change to upvote
     @topverse = @verse.translations.order(upvotes: :desc)[0]
-    @translations = @verse.translations.order(upvotes: :desc)
   end
 
 

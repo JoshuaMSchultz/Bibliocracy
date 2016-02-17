@@ -4,10 +4,10 @@ class CreateTranslations < ActiveRecord::Migration
       t.text :translation
       t.text :reason
       t.integer :upvotes
-      t.integer :donvotes
+      t.integer :dnvotes
       t.references :verse
       t.references :chapter
-      t.references :book 
+      t.references :book
 
       t.timestamps null: false
     end

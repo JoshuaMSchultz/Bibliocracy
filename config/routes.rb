@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :books
   resources :chapters
   resources :verses do
-    resources :translations
+    resources :translations do
+      member do
+        put "like", to: "translations#upvote"
+      end
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
