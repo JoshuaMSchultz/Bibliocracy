@@ -46,6 +46,7 @@ group :development, :test do
 end
 
 # Front-End Helpers
+gem "bower-rails", "~> 0.10.0"
 gem "haml-rails", "~> 0.9"
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'simple_form'

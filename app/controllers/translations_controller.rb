@@ -1,6 +1,7 @@
 class TranslationsController < ApplicationController
   before_action :set_translation, only: [:show, :edit, :update, :destroy]
   before_action :set_verse, only: [:create]
+  before_action :authenticate_user!, only: [:create]
 
   # GET /translations
   # GET /translations.json

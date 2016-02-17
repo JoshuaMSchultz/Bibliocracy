@@ -7,6 +7,11 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %header
+      = link_to t('links.register').html_safe, new_user_registration_path
+      = link_to t('links.login').html_safe, new_user_session_path
+      = link_to t('links.edit_user').html_safe, edit_user_registration_path
+      = link_to t('links.logout').html_safe, destroy_user_session_path, method: 'delete'
     %p.notice= notice
     %p.alert= alert
 
