@@ -7,12 +7,27 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %header
-      = link_to t('links.register').html_safe, new_user_registration_path
-      = link_to t('links.login').html_safe, new_user_session_path
-      = link_to t('links.edit_user').html_safe, edit_user_registration_path
-      = link_to t('links.logout').html_safe, destroy_user_session_path, method: 'delete'
+    .container
+      %ul.nav.nav-pills.navbar-right
+        - if current_user
+          %li.disabled= link_to current_user.email, '#'
+          %li= link_to 'Edit User', edit_user_registration_path
+          %li= link_to 'Logout', destroy_user_session_path, method: 'delete'
+        - else
+          %button.btn.btn-default.navbar-btn=link_to 'Sign in', new_user_session_path
+          %button.btn.btn-default.navbar-btn=link_to 'Sign up', new_user_registration_path
+
+    %h1.text-center Welcome to Bibliocracy
+
     %p.notice= notice
     %p.alert= alert
 
-    = yield
+    .container
+      .row
+        .col-lg-3
+        .col-lg-6
+          %p.text-lg-center A crowdsourced translation engine aimed at producing a historically, culturally, and meaningfully accurate translation of the bible. Submit translations, and vote on other translations to move closer to a more accurate revelation of meaning.
+        .col-lg-3
+
+      .row
+        = yield

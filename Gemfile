@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'sprockets-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -46,9 +48,8 @@ group :development, :test do
 end
 
 # Front-End Helpers
-gem "bower-rails", "~> 0.10.0"
 gem "haml-rails", "~> 0.9"
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
 
 # Functionality
