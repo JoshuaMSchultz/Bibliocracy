@@ -2,5 +2,13 @@
   .row
     .col-lg-2
     .col-lg-8
-      -@chapters.each do |chapter|
-        =link_to chapter.chapter_number, chapter
+      .text-center
+        .btn.btn-small.btn-default= link_to 'Books', root_path
+        .btn.btn-small.btn-default= link_to 'Back', :back
+    .col-lg-2
+%br
+
+.container-fluid
+  .row.text-center
+    -@chapters.each do |chapter|
+      =link_to chapter.chapter_number, chapter

@@ -2,5 +2,17 @@
   .row
     .col-lg-2
     .col-lg-8
+      .text-center
+        .btn.btn-small.btn-default= link_to 'Chapters', Book.find(@chapter.book_id)
+        .btn.btn-small.btn-default= link_to 'Back', :back
+    .col-lg-2
+%br
+
+.container-fluid
+  .row
+    .col-lg-2
+    .col-lg-8
       -@verses.each do |verse|
         =link_to verse.verse_number, verse
+        =verse.topverse.translation
+    .col-lg-2

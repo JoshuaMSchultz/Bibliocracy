@@ -2,6 +2,16 @@
   .row
     .col-lg-2
     .col-lg-8
+      .text-center
+        .btn.btn-small.btn-default= link_to 'Chapter', Chapter.find(@verse.book_id)
+        .btn.btn-small.btn-default= link_to 'Back', :back
+    .col-lg-2
+%br
+
+.container-fluid
+  .row
+    .col-lg-2
+    .col-lg-8
       =@topverse.translation
       %br
       =render 'translations/new', :locals => {:verse => @verse}
